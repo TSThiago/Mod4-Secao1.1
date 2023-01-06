@@ -6,7 +6,8 @@ function App() {
   const [total, setTotal] = useState(0)
   const [firstNum, setFirstNum] = useState(0)
   const [secondNum, setSecondNum] = useState(0)
-  
+  const [storage, setStorage] = useState()
+
   function Calculate(e) {
     switch (e.target.textContent) {
       case "Somar":
