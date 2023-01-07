@@ -1,30 +1,44 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Lista from './Lista';
 
 function App() {
 
   const [total, setTotal] = useState(0)
   const [firstNum, setFirstNum] = useState(0)
   const [secondNum, setSecondNum] = useState(0)
-  const [storage, setStorage] = useState()
+  const [storage, setStorage] = useState([])
+  
+  // useEffect((value) => {
+  //   let values = storage.slice()
+  //   values.push(value)
+  //   setStorage(values)
+  // }, [total])
+
+  function addStorage(value){
+    let values = storage.slice()
+    values.push(value)
+    setStorage(values)
+  }
 
   function Calculate(e) {
+    let result = 0
     switch (e.target.textContent) {
       case "Somar":
-        setTotal(parseInt(firstNum) + parseInt(secondNum)) 
+        result = parseInt(firstNum) + parseInt(secondNum)
         break;
       case "Subtrair":
-        setTotal(firstNum - secondNum)
+        result = firstNum - secondNum
         break
       case "Multiplicar":
-        setTotal(firstNum * secondNum)
+        result = firstNum * secondNum
         break;
       case "Dividir":
-        setTotal(firstNum / secondNum)
-        break;
-      default:
+        result = firstNum / secondNum
         break;
     }
+    setTotal(result)
+    addStorage(result)
   }
   
   return (
@@ -36,7 +50,6 @@ function App() {
         <label htmlFor="num2">Segundo Número</label>
         <input id='num2' onChange={(e) => setSecondNum(e.target.value)} type='text' />
         <br></br>
-
         <button onClick={(e) => Calculate(e)}>Somar</button>
         <br></br>
         <button onClick={(e) => Calculate(e)}>Subtrair</button>
@@ -45,16 +58,10 @@ function App() {
         <br></br>
         <button onClick={(e) => Calculate(e)}>Dividir</button>
         <br></br>
-
+        <ul>
+            <Lista array={storage}/>
+        </ul>
         <span>Total = {total}</span>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
