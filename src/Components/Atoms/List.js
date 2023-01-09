@@ -1,4 +1,4 @@
-function Lista({array}) {
+function List({array}) {
     return (
         <>
             <h3>Resultados</h3>
@@ -11,4 +11,4 @@ function Lista({array}) {
     )
 }
 
-export default Lista;
+export default List;
