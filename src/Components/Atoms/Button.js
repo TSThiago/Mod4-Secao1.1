@@ -1,6 +1,6 @@
 function Button(props){
     return (
-        <button onClick={() => props.onAction()}>props.children</button>
+        <button onClick={props.onAction}>{props.children}</button>
     )  
 }
 
