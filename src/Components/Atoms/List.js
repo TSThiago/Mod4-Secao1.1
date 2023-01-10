@@ -1,9 +1,9 @@
-function List({props}) {
+function List({array}) {
     return (
         <>
             <h3>Resultados</h3>
             {
-                props.map((result, index) => (
+                array.map((result, index) => (
                     <li key={index}>{result}</li>
                 ))
             }

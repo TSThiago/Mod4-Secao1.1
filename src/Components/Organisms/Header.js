@@ -42,7 +42,7 @@ function OrgHeader() {
       <header className="App-header">
         <MoleculeHeader onFirstNum={event => setFirstNum(event)} onSecondNum={event => setSecondNum(event)} onCalculate={event => Calculate(event)} />
         <ul>
-          <List props={storage} />
+          <List array={storage} />
         </ul>
         <span>Total={total}</span>
       </header>
