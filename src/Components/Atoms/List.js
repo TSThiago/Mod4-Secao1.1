@@ -1,9 +1,9 @@
-function Lista({array}) {
+function List({props}) {
     return (
         <>
             <h3>Resultados</h3>
             {
-                array.map((result, index) => (
+                props.map((result, index) => (
                     <li key={index}>{result}</li>
                 ))
             }
@@ -11,4 +11,4 @@ function Lista({array}) {
     )
 }
 
-export default Lista;
+export default List;
