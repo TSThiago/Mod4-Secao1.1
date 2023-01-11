@@ -1,7 +1,12 @@
-function Input(props){
+import Hover from "./Hover";
+
+function Input({onText, OnMouseOver, OnMouseOut, status}){
     return (
-    <input onChange={(value) => props.onText(value)} type='text' />
+    <>
+    <input onMouseOver={OnMouseOver} onMouseOut={OnMouseOut} onChange={(value) => onText(value)} type='text' />
+    {status ?<p>Digite um número</p> : null}
+    </>
     )
 }
 
-export default Input;
+export default Hover(Input);

@@ -37,6 +37,10 @@ function OrgHeader() {
     addStorage(result)
   }
 
+  function logger(){
+    console.log('asdasd')
+  }
+
   return (
     <div className="Calculator">
       <header className="App-header">
